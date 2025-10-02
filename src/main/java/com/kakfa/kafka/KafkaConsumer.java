@@ -10,7 +10,7 @@ public class KafkaConsumer {
 
   private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
-  @KafkaListener(topics = "${com.kafka.topic}")
+  @KafkaListener(topics = "${com.kafka.topic}", groupId = "myGroup")
   public void consume(String message) {
     log.info("Received value in consumer printing the same : {}", message);
   }

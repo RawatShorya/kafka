@@ -25,4 +25,12 @@ public class Controller {
     log.info("Received payload in responseEntity : {}", payload);
     return new ResponseEntity<>(testService.sendPayloadToTopic(payload), HttpStatus.OK);
   }
+
+  @PostMapping("/user/test")
+  public ResponseEntity<Boolean> userResponseEntity(
+      @RequestParam String firstName, @RequestParam String lastName) {
+    log.info("Received firstName as : {} and lastName as : {}", firstName, lastName);
+    return new ResponseEntity<>(
+        testService.sendPayloadWithUserData(firstName, lastName), HttpStatus.OK);
+  }
 }
